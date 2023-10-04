@@ -1,5 +1,5 @@
 import requests
-import json
+# import json
 
 
 class FlightSearch:
@@ -24,8 +24,8 @@ class FlightSearch:
         response.raise_for_status()
         json_data = response.json()
 
+        # Uncomment these lines below (and import json) if access to json files containing flights information is needed
         # output_name = city
-        # uncomment this line if access to json files is needed
         # with open(f"data_output/{output_name}_output.json", "w") as flight_output:
         #     json.dump(json_data, flight_output, indent=4)
         return json_data

@@ -4,16 +4,17 @@ from modules import flight_search
 # from modules import notification_manager
 import os
 
+# EDIT THESE VARIABLES BELOW
 FLIGHT_API_KEY = os.getenv('FLIGHT_API_KEY')
 csv_flights_filepath = os.getenv('csv_flights_filepath')
 city_from = "BSB"
 date_from = "04/10/2023"
 date_to = "04/04/2024"
 
+# DO NOT EDIT ANYTHING BELOW THIS LINE
 DataManager = data_manager.DataManager(csv_flights_filepath=csv_flights_filepath)
 FlightSearch = flight_search.FlightSearch(api_key=FLIGHT_API_KEY)
 FlightData = flight_data.FlightData()
-
 IATA_destinies = DataManager.csv_as_dict()
 
 for city_key in IATA_destinies:
@@ -28,4 +29,5 @@ for city_key in IATA_destinies:
         DataManager.update_df(city=IATA_destinies[city_key]["City Name"], new_price=best_price)
         DataManager.save_google_sheet()
         # Todo: Send notification
-        # NotificationManager.send_notification(city=city_key["City Name"], new_price=best_price)
+        # NotificationManager.send_sms_notification()
+        # NotificationManager.send_email_notification()

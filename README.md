@@ -1,16 +1,16 @@
 # Flight_Search
-Program to search for flights and alert the user
+Program to search for flights and alert the user about price changes if there is a lower price
 
 # Libs
-pandas
-requests
-os
+pandas<br>
+requests<br>
+os<br>
 
 # How to use v1.0.0.0
-1 - Get an API-KEY in https://tequila.kiwi.com/portal/getting-started
-1.1 - Add the API-KEY to the variable in the code
-2 - Download Google Drive and setup a csv file like the example given in the code files
-2.1 - Add the csv filepath to the variable in the code
-3 - Edit the variable "city_from" with an IATA_CODE of the desired city of departure
-4 - Edit the variables "date_from" and "date_to" with the dates range that you want your flight to depart
-5 - Run the program
+__1 -__ Get an API-KEY in https://tequila.kiwi.com/portal/getting-started<br>
+__1.1 -__ Add the API-KEY to the variable in the code<br>
+__2 -__ Download Google Drive and setup a csv file like the example given in the code files<br>
+__2.1 -__ Add the csv filepath to the variable in the code<br>
+__3 -__ Edit the variable "city_from" with an IATA_CODE of the desired city of departure<br>
+__4 -__ Edit the variables "date_from" and "date_to" with the dates range that you want your flight to depart<br>
+__5 -__ Run the program<br>

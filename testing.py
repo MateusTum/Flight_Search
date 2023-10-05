@@ -1,21 +1,25 @@
 # ARE FOR TESTING CODE
 
 import pandas as pd
-
-test_dic = {"city": {"IATA_Code": "AAA",
-                     "Price": "111"},
-            "new_city": {"IATA_Code": "BBB",
-                         "Price": "222"}
-            }
-
-new_dic = {"city": ["city_a", "city_b", "city_c", "city_d"],
-           "price": ["111", "222", "333", "444"]}
-df = pd.DataFrame(new_dic)
+from datetime import datetime
 
 
-new_price = 300  # Replace with the desired new price
+user_database = {"username": ["user1_username"],
+                 "user_first_name": ["user1_first_name"],
+                 "user_last_name": ["user1_last_name"],
+                 "user_email": ["user1_email"],
+                 "user_date_of_creation": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]}
+user_database_df = pd.DataFrame(user_database, index=["user1"])
 
-df.loc[df['city'] == 'city_a', 'price'] = new_price
+new_user = {"username": ["aa"],
+            "user_first_name": ["aa"],
+            "user_last_name": ["aa"],
+            "user_email": ["aa"],
+            "user_date_of_creation": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")]}
+new_user_df = pd.DataFrame(new_user, index=["aa"])
+updated_df = pd.concat([user_database_df, new_user_df])
 
+with open("testing.csv", 'w') as csv:
+    updated_df.to_csv(csv)
 
-print(df)
+print(updated_df)

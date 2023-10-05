@@ -107,7 +107,7 @@ class UserManager:
 
     # ====== Methods for user info collection ======
     def get_user_info(self):
-        user_to_get_info = input("Type the username to get its data")
+        user_to_get_info = int(input("Type the username to get its data"))
         try:
             user_info = self.read_users_dataframe().loc[user_to_get_info]
         except KeyError:

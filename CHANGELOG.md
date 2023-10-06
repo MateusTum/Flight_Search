@@ -1,3 +1,11 @@
+# 1.1.0.0 (2023-10-06)
+
+- New feature: Auto-populate city IATA codes
+  
+| Commit | Type | Description |
+| -- | -- | -- |
+| [58407d0](https://github.com/MateusTum/Flight_Search/commit/58407d084020f224eb2b5996496490a69f814ddd) | feature | auto-populate city IATA codes |
+
 # 1.0.0.1 (2023-10-04)
 
 - Docs changes

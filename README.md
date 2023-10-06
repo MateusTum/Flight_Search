@@ -1,12 +1,14 @@
-# Flight_Search
-Program to search for flights and alert the user about price changes if there is a lower price
+# Flight Search
+## Functions
++ Search for flights based on dates and IATA codes
 
+### [Changelog](https://github.com/MateusTum/Flight_Search/blob/main/CHANGELOG.md)
 # Libs
 pandas<br>
 requests<br>
 os<br>
 
-# How to use v1.0.0.0
+# How to use
 __1 -__ Get an API-KEY in https://tequila.kiwi.com/portal/getting-started<br>
 __1.1 -__ Add the API-KEY to the variable in the code<br>
 __2 -__ Download Google Drive and setup a csv file like the example given in the code files<br>

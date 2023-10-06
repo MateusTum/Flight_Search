@@ -1,11 +1,11 @@
 City,IATA Code,Lowest Price
-Bangkok,BKK,9999
-Paris,PAR,9999
-London,LON,9999
-Dubai,DXB,9999
-Singapore,SIN,9999
-Kuala Lumpur,KUL,9999
-New York City,NYC,9999
-Istanbul,IST,9999
-Tokyo,TYO,9999
-Seoul,SEL,9999
+Bangkok,,9999
+Paris,,9999
+London,,9999
+Dubai,,9999
+Singapore,,9999
+Kuala Lumpur,,9999
+New York City,,9999
+Istanbul,,9999
+Tokyo,,9999
+Seoul,,9999

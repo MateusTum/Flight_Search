@@ -17,6 +17,11 @@ class FlightSearch:
             "date_from": date_from,
             "date_to": date_to
         }
+        # Todo: 1# Add new filters to search for flights
+        # max_fly_duration
+        # adults
+        # children
+        # selected cabins
 
         response = requests.get(url=self.FLIGHT_SEARCH_ENDPOINT, params=params, headers=self.headers)
         response.raise_for_status()
@@ -36,4 +41,3 @@ class FlightSearch:
         json_data = response.json()
 
         return json_data
-

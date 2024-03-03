@@ -45,7 +45,7 @@ class DataManager:
     def save_google_sheet(self):
         print("Saving dataframe as csv file")
         self.updated_sheets_df.to_csv(self.csv_flights_filepath, index=False)
-
+        # Todo: 2# Save the google sheets only once
     def update_df_with_iata_code(self, city, city_iata_code:str):
         print("Updating dataframe with city IATA code...")
         self.updated_sheets_df.loc[self.updated_sheets_df['City'] == city, 'IATA Code'] = city_iata_code

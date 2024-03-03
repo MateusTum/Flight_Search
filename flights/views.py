@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .models import City, Airport, Flight
 from .serializers import CitySerializer, AirportSerializer, FlightSerializer
+from rest_framework.permissions import AllowAny
 
 class CityViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]

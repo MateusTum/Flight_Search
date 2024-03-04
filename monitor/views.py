@@ -2,6 +2,9 @@ from django.http import JsonResponse, HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import requests
+from django.shortcuts import render, redirect
+from .forms import MonitoredFlightForm
+from django.urls import reverse
 
 class FlightDataView(APIView):
     def get(self, request, *args, **kwargs):
@@ -26,3 +29,14 @@ class FlightDataView(APIView):
             return Response(response.json())
         else:
             return Response({'error': 'Failed to fetch data from the third-party API'}, status=response.status_code)
+
+
+def create_monitored_flight(request):
+    if request.method == 'POST':
+        form = MonitoredFlightForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('admin:monitor_monitoredflight_changelist'))
+    else:
+        form = MonitoredFlightForm()
+    return render(request, 'monitor/add_flight.html', {'form': form})

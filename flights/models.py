@@ -4,9 +4,9 @@ from django.db import models
 class City(models.Model):
     name = models.CharField(max_length=30)
     country = models.CharField(max_length=20)
-    code = models.CharField(max_length=4)
-    timezone = models.CharField(max_length=50)
-    population = models.IntegerField()
+    code = models.CharField(max_length=4, null=True)
+    timezone = models.CharField(max_length=50, null=True)
+    population = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
@@ -34,12 +34,8 @@ class Flight(models.Model):
     destination_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='destination_airport')
     departure_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='departure_airport')
 
-
     #Flight creation/update date
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
 
 

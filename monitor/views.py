@@ -37,7 +37,7 @@ def create_monitored_flight(request):
         form = MonitoredFlightForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('admin:monitor_monitoredflight_changelist'))
+            return redirect('index')
     else:
         form = MonitoredFlightForm()
     return render(request, 'monitor/add_flight.html', {'form': form})

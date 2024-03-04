@@ -11,4 +11,4 @@ class AirportAdmin(admin.ModelAdmin):
 
 @admin.register(Flight)
 class FlightAdmin(admin.ModelAdmin):
-    list_display = ('departure_date', 'arrival_date', 'flight_duration', 'flight_distance', 'destination_airport', 'departure_airport', 'created_at', 'updated_at')
+    list_display = ('name', 'departure_date', 'arrival_date', 'flight_duration', 'flight_distance', 'destination_airport', 'departure_airport', 'created_at', 'updated_at')

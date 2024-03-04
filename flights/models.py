@@ -22,6 +22,8 @@ class Airport(models.Model):
 
 
 class Flight(models.Model):
+    name = models.CharField(max_length=60)
+
     # Departure / arrival
     departure_date = models.DateTimeField("Departure Date")
     arrival_date = models.DateTimeField("Arrival Date")
@@ -38,4 +40,5 @@ class Flight(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-
+    def __str__(self):
+        return self.name

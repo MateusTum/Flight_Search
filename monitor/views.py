@@ -5,6 +5,7 @@ import requests
 from django.shortcuts import render, redirect
 from .forms import MonitoredFlightForm
 from django.urls import reverse
+from monitor.models import MonitoredFlight
 
 class FlightDataView(APIView):
     def get(self, request, *args, **kwargs):
@@ -40,3 +41,7 @@ def create_monitored_flight(request):
     else:
         form = MonitoredFlightForm()
     return render(request, 'monitor/add_flight.html', {'form': form})
+
+def index(request):
+    flights = MonitoredFlight.objects.all()  # Query all monitored flights
+    return render(request, 'monitor/index.html', {'flights': flights})

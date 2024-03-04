@@ -55,38 +55,45 @@
     </style>
 </head>
 <body>
-    <h2>Create Monitored Flight</h2>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.name.label_tag }}
-            {{ form.name }}
-        </div>
-        <div class="form-group">
-            {{ form.alert_email.label_tag }}
-            {{ form.alert_email }}
-        </div>
-        <div class="form-group">
-            {{ form.IATA_from.label_tag }}
-            {{ form.IATA_from }}
-        </div>
-        <div class="form-group">
-            {{ form.IATA_to.label_tag }}
-            {{ form.IATA_to }}
-        </div>
-        <div class="form-group">
-            {{ form.date_from.label_tag }}
-            <input type="datetime-local" name="date_from">
-        </div>
-        <div class="form-group">
-            {{ form.date_to.label_tag }}
-            <input type="datetime-local" name="date_to">
-        </div>
-        <div class="form-group">
-            {{ form.best_flight.label_tag }}
-            {{ form.best_flight }}
-        </div>
-        <button type="submit">Submit</button>
-    </form>
+    <div>
+        <h1>Create Monitored Flight</h1>
+    </div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                {{ form.alert_email.label_tag }}
+                {{ form.alert_email }}
+            </div>
+            <div class="form-group">
+                {{ form.IATA_from.label_tag }}
+                {{ form.IATA_departure }}
+            </div>
+            <div class="form-group">
+                {{ form.IATA_to.label_tag }}
+                {{ form.IATA_arrival }}
+            </div>
+            <div class="form-group">
+                {{ form.date_from.label_tag }}
+                <input type="datetime-local" name="date_from">
+            </div>
+            <div class="form-group">
+                {{ form.date_to.label_tag }}
+                <input type="datetime-local" name="date_to">
+            </div>
+            <div class="form-group">
+                {{ form.best_flight.label_tag }}
+                {{ form.best_flight }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
+    
 </body>
 </html>

@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Monitor</title>
+    <link rel="stylesheet" href="{% static 'monitor/styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the Flight Monitor</h1>
+    <a href="/monitor/add_flight"><button>Monitor a Flight</button></a>
+    <h2>Monitored Flights</h2>
+    <ul>
+        {% for flight in flights %}
+            <li>
+                <h3>{{ flight.name }}</h3>
+                <br/> 
+                {{ flight.IATA_departure }} > {{ flight.IATA_arrival }} 
+                <br/>
+                FROM {{ flight.date_from|date:"Y-m-d H:i" }}
+                <br/>
+                TO {{ flight.date_to|date:"Y-m-d H:i" }}
+                <br/>
+                <hr/>
+                <h3>BEST DEAL:</h3>
+                <h4>${{ flight.best_flight.price }}</h4>
+                {{ flight.best_flight }}
+                <br/>
+                DEPARTURE DATE:
+                <br/>
+                {{ flight.best_flight.departure_date }}
+                <br/>
+                ARRIVAL DATE:
+                <br/>
+                {{ flight.best_flight.arrival_date }}
+                <br/>
+                <a href="{% url 'admin:monitor_monitoredflight_change' flight.id %}" class="edit-button">Edit</a>
+            </li>
+        {% empty %}
+            <li>No flights are currently being monitored.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -24,6 +24,8 @@ class Airport(models.Model):
 class Flight(models.Model):
     name = models.CharField(max_length=60)
 
+    price = models.IntegerField()
+
     # Departure / arrival
     departure_date = models.DateTimeField("Departure Date")
     arrival_date = models.DateTimeField("Arrival Date")

@@ -10,8 +10,8 @@ class MonitoredFlight(models.Model):
     IATA_departure = models.CharField(max_length=3)
     IATA_arrival = models.CharField(max_length=3)
 
-    date_from = models.DateTimeField()  # Changed from DateField to DateTimeField
-    date_to = models.DateTimeField()    # Changed from DateField to DateTimeField
+    date_from = models.DateTimeField()
+    date_to = models.DateTimeField()
 
     best_flight = models.OneToOneField(Flight, on_delete=models.CASCADE, related_name='best_flight', null=True, blank=True)
 

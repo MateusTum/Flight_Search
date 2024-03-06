@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import FlightDataView, create_monitored_flight
+from .views import create_monitored_flight, check_flights
+
 
 urlpatterns = [
-    path('flight-data/', FlightDataView.as_view(), name='flight-data'),
     path('add_flight/', create_monitored_flight, name='add_flight'),
+    path('check-flights/', check_flights, name='check_flights'),
 ]

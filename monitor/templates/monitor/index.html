@@ -9,6 +9,11 @@
 <body>
     <h1>Welcome to the Flight Monitor</h1>
     <a href="/monitor/add_flight"><button>Monitor a Flight</button></a>
+    <form id="apiKeyForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" id="checkPricesButton">Check for Lower Prices</button>
+    </form>
     <h2>Monitored Flights</h2>
     <ul>
         {% for flight in flights %}
@@ -40,5 +45,32 @@
             <li>No flights are currently being monitored.</li>
         {% endfor %}
     </ul>
+
+    <script>
+        document.getElementById('checkPricesButton').addEventListener('click', function() {
+
+            const apiKey = document.querySelector('input[name="api_key"]').value;
+            console.log(apiKey);
+            fetch('/monitor/check-flights/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                },
+                body: JSON.stringify({
+                    api_key: apiKey,
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Log the response data to the console
+                alert(data.message); // Show success or error message
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class City(models.Model):
     name = models.CharField(max_length=30)
     country = models.CharField(max_length=20)
@@ -35,8 +34,14 @@ class Flight(models.Model):
     flight_distance = models.IntegerField("Flight Distance")
 
     # Airports
-    destination_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='destination_airport')
-    departure_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='departure_airport')
+    # destination_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='destination_airport')
+    # departure_airport = models.OneToOneField(City, on_delete=models.CASCADE, related_name='departure_airport')
+
+    destination_airport = models.CharField(max_length=50)
+    departure_airport = models.CharField(max_length=50)
+
+    offer_link = models.TextField(default="Link here", null=True, blank=True)
+
 
     #Flight creation/update date
     created_at = models.DateTimeField(auto_now_add=True)
